@@ -63,7 +63,7 @@ namespace TouchPortalApi {
     /// <param name="cancellationToken">The cancellation token</param>
     public async Task SendAsync(object model, CancellationToken cancellationToken = default) {
       string request = PrepareMessage(model);
-      var bytesSent = Encoding.ASCII.GetBytes(request);
+      var bytesSent = Encoding.UTF8.GetBytes(request);
 
       await _tpsocket.SendAsync(bytesSent, cancellationToken);
     }
